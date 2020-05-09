@@ -47,3 +47,8 @@ sudo pip3 install python-vlc
 ```
 
 This will run it at 1:05 am every night.
+
+## TODO and improvements
+
+* Store the snapshots in JPG instead of PNG to save storage. VLC should be capable of doing that, but couldn't figure out the configuration yet
+* Make multi-day time-lapses automatically (e.g. one per month). Experiment with the best composition of pictures (e.g. 2 second worth of pictures per day, sometime midday)
