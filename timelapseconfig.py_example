@@ -1,0 +1,8 @@
+rtsp_url = 'rtsp://user:pass@192.168.1.10:554/stream1'
+output_dir = '/mnt/HDD/timelapse/' # must exist, make sure to end with /
+output_dir_for_daily_timelapse_videos = '/mnt/HDD/timelapse/daily/' # must exist, make sure to end with /
+delay_between_images = 60 # in seconds
+cronjob_repeat_time = 600 # in seconds
+keep_every_nth_picture = 10 # after a daily video is created, delete all but the n-th picture
+
+daily_foldername_date_formatstring = '%Y-%m-%d'
