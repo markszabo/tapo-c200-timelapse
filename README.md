@@ -49,7 +49,7 @@ sudo pip3 install python-vlc
 This will run it at 1:05 am every night.
 
 8. Wait until next month, check the images
-9. Try the video assembly: `python3 monthlyvideo.py`
+9. Try the monthly-video assembly: `python3 monthlyvideo.py`
 10. If it looks good, add it to crontab as well: `crontab -e`
 
 ```
