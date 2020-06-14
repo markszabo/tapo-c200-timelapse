@@ -40,7 +40,7 @@ sudo pip3 install python-vlc
 ```
 5. Wait for a day, check the images
 6. Try the video assembly: `python3 makevideo.py`
-7. If it looks good, at that to crontab as well: `crontab -e`
+7. If it looks good, add it to crontab as well: `crontab -e`
 
 ```
 5 1 * * * /usr/bin/python3 /home/pi/timelapse/makevideo.py >> /tmp/timelapse_makevideo.log
@@ -48,7 +48,19 @@ sudo pip3 install python-vlc
 
 This will run it at 1:05 am every night.
 
+8. Wait until next month, check the images
+9. Try the video assembly: `python3 monthlyvideo.py`
+10. If it looks good, add it to crontab as well: `crontab -e`
+
+```
+5 4 1 * * /usr/bin/python3 /home/pi/timelapse/monthlyvideo.py >> /tmp/timelapse_monthlyvideo.log
+```
+
+This will run it at 4:05 am first day of every month and create 2 videos:
+
+* One with all the images kept from the days in the month (by default 144 image per day) resulting in 6 seconds per day, so overall a 3 minute video per month
+* Second one with 2 seconds each day taken at midday (10am to 2pm with default values) resulting in a 1 minute video per month with (hopefully) more or less uniform lights (no flashing between nights and days)
+
 ## TODO and improvements
 
 * Store the snapshots in JPG instead of PNG to save storage. VLC should be capable of doing that, but couldn't figure out the configuration yet
-* Make multi-day time-lapses automatically (e.g. one per month). Experiment with the best composition of pictures (e.g. 2 second worth of pictures per day, sometime midday)
