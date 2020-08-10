@@ -9,6 +9,18 @@ output_short_video_path = timelapseconfig.output_dir_for_monthly_timelapse_video
 
 os.chdir(timelapseconfig.output_dir)
 
+print("First make sure all the folders are prepared (they only contain the expected number of pictures)")
+n = str(int(timelapseconfig.keep_every_nth_picture))
+for dir in os.listdir(timelapseconfig.output_dir):
+    if dir.startswith(lastmonth):
+        daydir = timelapseconfig.output_dir + dir
+        files = os.listdir(daydir)
+        if len(files) > 250: #it should be 144
+            cmd = "for file in `find " + daydir + " -type f | awk 'NR %" + n + " != 0'`; do rm $file ; done"
+            print("Running command: " + cmd)
+            returnval = os.system(cmd)
+            print("Command returned: " + str(returnval))
+
 # ffmpeg -r 24 -pattern_type glob -i '2020-05-*/*.png' -s hd1080 -vcodec libx264 out05.mp4
 cmd = "ffmpeg -r 24 -pattern_type glob -i '" + lastmonth + "*/*.png' -s hd1080 -vcodec libx264 '" + output_fulldays_video_path + "'"
 print("Running command: " + cmd)
