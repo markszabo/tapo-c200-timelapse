@@ -11,8 +11,6 @@ write_path = timelapseconfig.output_dir + datetime.datetime.today().strftime(tim
 if not os.path.exists(write_path):
     os.makedirs(write_path)
 
-print ('waiting for VLC')
-#time.sleep(10)
 print ("staring capture")
 starttime = datetime.datetime.now().timestamp()
 while datetime.datetime.now().timestamp() < starttime + timelapseconfig.cronjob_repeat_time:
