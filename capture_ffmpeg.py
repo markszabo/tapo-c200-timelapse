@@ -15,11 +15,11 @@ print ("staring capture")
 starttime = datetime.datetime.now().timestamp()
 while datetime.datetime.now().timestamp() < starttime + timelapseconfig.cronjob_repeat_time:
     cycle_starttime = datetime.datetime.now().timestamp()
-    file_name = write_path + "/" + str(int(datetime.datetime.now().timestamp())) + ".png"
+    file_name = write_path + "/" + str(int(datetime.datetime.now().timestamp())) + ".jpg"
     print(file_name)
     try:
         (
-                ffmpeg.input(timelapseconfig.rtsp_url, ss="00:00:03").output(file_name, vframes=1).overwrite_output().run(capture_stdout=True, capture_stderr=True)
+                ffmpeg.input(timelapseconfig.rtsp_url, ss="00:00:03").output(file_name, vframes=1,format='image2', vcodec='mjpeg').overwrite_output().run(capture_stdout=True, capture_stderr=True)
         )
     except ffmpeg.Error as e:
         print(e.stderr.decode(), file=sys.stderr)
