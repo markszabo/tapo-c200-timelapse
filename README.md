@@ -22,16 +22,22 @@ In my setup I take a picture every minute, so that's 1440 pictures a day. With 2
 * 1 day's pictures kept for later (1 picture per 10 minute, 144 pictures per day): 260 MB
 
 ## Dependencies
-
+Use with VLC : 
 ```
 sudo apt install libvlc-dev
 sudo pip3 install python-vlc
+```
+Use with FFMPEG : 
+
+Installing ffmpeg-python The latest version of ffmpeg-python can be acquired via a typical pip install:
+```
+pip install ffmpeg-python
 ```
 
 ## Setup
 
 1. `mv timelapseconfig.py_example timelapseconfig.py` and update it accordingly
-2. `python3 capture.py` to see if it works
+2. `python3 capture.py` (VLC) or `python3 capture_ffmpeg.py` (FFMPEG) to see if it works
 3. Check the images being created
 4. If everything looks good, add it to crontab: `crontab -e`
 
